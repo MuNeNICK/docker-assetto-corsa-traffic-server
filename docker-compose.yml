@@ -1,0 +1,23 @@
+version: "3"
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    #environment:
+      #STEAM_USER: ${STEAM_USER}
+      #STEAM_PASSWORD: ${STEAM_PASSWORD}
+      #AC_SERVER_NAME: MuNeNiCK
+      #AC_PASSWORD: ${AC_PASSWORD}
+      #AC_ADMIN_PASSWORD: ${AC_ADMIN_PASSWORD}
+    ports:
+      - 8081:8081
+      - 9600:9600
+      - 9600:9600/udp 
+      - 50041:50041 
+      - 50042:50042 
+    #volumes:
+      #- type: bind
+        #source: "./steam"
+        #target: "/steamapps"
