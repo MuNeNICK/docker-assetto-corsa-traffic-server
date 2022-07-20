@@ -1,19 +1,21 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 WORKDIR /assetto
 
 #install dotnet
-RUN sudo apt-get update && sudo apt-get install curl -y
-RUN curl -O -L -s https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
-RUN sudo dpkg -i packages-microsoft-prod.deb
-RUN sudo apt-get update && sudo apt-get install -y apt-transport-https
-RUN sudo apt-get install dotnet-sdk-5.0
-RUN sudo apt install dotnet-sdk-3.1
+RUN apt-get update && apt-get install curl -y
+RUN curl -O -L -s https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
+RUN dpkg -i packages-microsoft-prod.deb
+RUN apt-get update && apt-get install -y apt-transport-https
+RUN apt-get install aspnetcore-runtime-6.0 -y
+#RUN apt-get install dotnet-sdk-3.1
 
 #install server
 RUN curl -O -L -s https://github.com/compujuckel/AssettoServer/releases/download/v0.0.49/assetto-server-linux-x64.tar.gz
 RUN tar -zxvf assetto-server-linux-x64.tar.gz
-RUN cd assetto-server-linux-x64
-RUN sudo chmod +x AssettoServer
+RUN chmod +x AssettoServer
 
-CMD ["./AssettoServer"]
+# ADD script/ /usr/local/bin
+# RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+ENTRYPOINT ["./AssettoServer"]

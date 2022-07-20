@@ -17,7 +17,10 @@ services:
       - 9600:9600/udp 
       - 50041:50041 
       - 50042:50042 
-    #volumes:
-      #- type: bind
-        #source: "./steam"
-        #target: "/steamapps"
+    volumes:
+      - type: bind
+        source: "./assetto/cfg"
+        target: "/assetto/cfg"
+      - type: bind
+        source: "./assetto/content"
+        target: "/assetto/content"
