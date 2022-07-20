@@ -5,11 +5,10 @@ Assetto Corsaの一般車(AI,Traffic)機能の付いたサーバーのDockerフ�
 # 使い方
 - このリポジトリをクローン
 - ContentsManagerのサーバタブまたはacServerManager.exeでサーバー用コンフィグを作成
-- entry_list,iniの[car_*]項目すべてに
+- entry_list,iniの[car_*]項目すべてに以下を記述。
 ```
 AI=auto
 ```
-を記述
 ![image](https://user-images.githubusercontent.com/72444129/179905727-e1c6279a-4657-4b76-845d-2d9a84dd0242.png)
 
 - assettoフォルダ内のcfgにコピー
